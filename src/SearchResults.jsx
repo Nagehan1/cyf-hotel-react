@@ -1,6 +1,7 @@
 import React from "react";
 import Table from "react-bootstrap/Table";
-import moment from "moment";
+
+import SearchResultRow from "./SearchResultRow";
 
 function SearchResults(props) {
   return (
@@ -20,24 +21,7 @@ function SearchResults(props) {
         </thead>
         <tbody>
           {props.results.map(inf => {
-            return (
-              <tr>
-                <td>{inf.id}</td>
-                <td>{inf.title}</td>
-                <td>{inf.firstName}</td>
-                <td>{inf.surname}</td>
-                <td>{inf.email}</td>
-                <td>{inf.roomId}</td>
-                <td>{inf.checkInDate}</td>
-                <td>{inf.checkOutDate}</td>
-                <td>
-                  {moment(inf.checkOutDate).diff(
-                    moment(inf.checkInDate),
-                    "days"
-                  )}
-                </td>
-              </tr>
-            );
+            return <SearchResultRow inf={inf} />;
           })}
         </tbody>
       </Table>
