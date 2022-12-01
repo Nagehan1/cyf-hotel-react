@@ -1,12 +1,11 @@
 import React from "react";
 import Table from "react-bootstrap/Table";
-
 import SearchResultRow from "./SearchResultRow";
 
 function SearchResults(props) {
   return (
     <div>
-      <Table striped bordered hover>
+      <Table bordered hover>
         <thead>
           <tr>
             <th>id</th>
@@ -28,5 +27,4 @@ function SearchResults(props) {
     </div>
   );
 }
-
 export default SearchResults;

@@ -1,8 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import moment from "moment";
+import "/home/cyf/Documents/CYF/cyf-hotel-react/src/searcresultrow.css";
 function SearchResultRow(props) {
+  const [click, setClick] = useState(true);
+  const handleClick = () => {
+    setClick(!click);
+  };
+
   return (
-    <tr>
+    <tr className={click ? "clicked" : "unclicked"} onClick={handleClick}>
       <td>{props.inf.id}</td>
       <td>{props.inf.title}</td>
       <td>{props.inf.firstName}</td>
