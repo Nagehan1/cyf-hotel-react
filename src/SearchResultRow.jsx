@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import moment from "moment";
-import "/home/cyf/Documents/CYF/cyf-hotel-react/src/searcresultrow.css";
+// import "/home/cyf/Documents/CYF/cyf-hotel-react/src/searcresultrow.css";
 function SearchResultRow(props) {
   const [click, setClick] = useState(true);
   const handleClick = () => {
@@ -22,6 +22,11 @@ function SearchResultRow(props) {
           moment(props.inf.checkInDate),
           "days"
         )}
+      </td>
+      <td>
+        <button onClick={() => props.onClick(props.inf.id)} value={props.value}>
+          Show profile
+        </button>
       </td>
     </tr>
   );

@@ -6,8 +6,9 @@ import { useState } from "react";
 
 function SearchResults(props) {
   const [customerId, setCustomerId] = useState("");
-  function handleClick(e) {
-    setCustomerId(e.target.value);
+  function handleClick(id) {
+    setCustomerId(id);
+    console.log(id);
   }
 
   return (
@@ -27,16 +28,11 @@ function SearchResults(props) {
         </thead>
         <tbody>
           {props.results.map(inf => {
-            return <SearchResultRow inf={inf} />;
+            return <SearchResultRow inf={inf} onClick={handleClick} />;
           })}
         </tbody>
-        <tr>
-          <button onClick={props.onclick} value={props.value}>
-            Show profile
-          </button>
-        </tr>
       </Table>
-      <CustomerProfile />
+      <CustomerProfile id={customerId} />
     </div>
   );
 }

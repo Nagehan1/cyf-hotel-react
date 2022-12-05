@@ -7,10 +7,13 @@ const Bookings = () => {
   const [filtered, setFiltered] = useState(bookings);
   const [searchInput, setSearchInput] = useState("");
 
+  const [loading, setLoading] = useState(true);
+
   useEffect(() => {
     fetch("https://cyf-react.glitch.me")
       .then(res => res.json())
-      .then(data => setBookings(data));
+      .then(data => setBookings(data))
+      .then(data => setLoading(false));
   }, []);
 
   // const handleSearchInput =(e)=>{
@@ -25,7 +28,11 @@ const Bookings = () => {
     <div className="App-content">
       <div className="container">
         <Search search={filtered} data={setFiltered} />
-        <SearchResults results={bookings} />
+        {loading === true ? (
+          <p>loading...</p>
+        ) : (
+          <SearchResults results={bookings} />
+        )}
       </div>
     </div>
   );
