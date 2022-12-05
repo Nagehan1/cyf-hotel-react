@@ -1,8 +1,15 @@
 import React from "react";
 import Table from "react-bootstrap/Table";
 import SearchResultRow from "./SearchResultRow";
+import CustomerProfile from "./CustomerProfile";
+import { useState } from "react";
 
 function SearchResults(props) {
+  const [customerId, setCustomerId] = useState("");
+  function handleClick(e) {
+    setCustomerId(e.target.value);
+  }
+
   return (
     <div>
       <Table bordered hover>
@@ -23,7 +30,13 @@ function SearchResults(props) {
             return <SearchResultRow inf={inf} />;
           })}
         </tbody>
+        <tr>
+          <button onClick={props.onclick} value={props.value}>
+            Show profile
+          </button>
+        </tr>
       </Table>
+      <CustomerProfile />
     </div>
   );
 }

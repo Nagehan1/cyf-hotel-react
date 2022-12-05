@@ -7,7 +7,7 @@ function TouristInfoCards() {
   return (
     <div>
       <CardGroup>
-        <Card style={{ width: "18rem" }}>
+        <Card style={{ width: "10px" }}>
           <Card.Img
             variant="top"
             src="https://www.traveldrafts.com/wp-content/uploads/2020/08/Glasgow-famous-cover.jpg"
